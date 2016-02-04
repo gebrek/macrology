@@ -14,6 +14,11 @@
 ** (Thankfully) Common Lisp is lexically scoped
    I do like dynamic scoping, which previously "was considered on of
    the defining features of Lisp", and you can do pretty neat
-   things. Like in emacs-lisp you can cahnge the behavior of a
+   things. Like in emacs-lisp you can change the behavior of a
    function without altering it, but by altering the environment it's
    called in. Pretty neat!
+
+   On the flip side lexical scoping is easier to understand with a
+   static representation of the program (i.e. code) whereas dynamic
+   scoping you seem to need an understanding of the program in motion
+   which is harder to grok.
