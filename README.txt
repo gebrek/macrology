@@ -1,1 +1,1 @@
-This is the stub README.txt for the "macrology" project.
+Macrology is the relevant work and notes I have for my independent study
