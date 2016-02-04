@@ -22,3 +22,7 @@
    static representation of the program (i.e. code) whereas dynamic
    scoping you seem to need an understanding of the program in motion
    which is harder to grok.
+** Closures
+   When a function is defined with free variables the environment must
+   save copies of the bindings of those variables when the function is
+   defined. This function + variable bindings is called a /closure/.
