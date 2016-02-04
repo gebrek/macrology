@@ -7,8 +7,13 @@
    #+BEGIN_SRC lisp
      (defun double (x)
         (* x 2))
-     (defvar double
-       3)
+     (defvar double 3)
 
      (double double) ; => 6
    #+END_SRC
+** (Thankfully) Common Lisp is lexically scoped
+   I do like dynamic scoping, which previously "was considered on of
+   the defining features of Lisp", and you can do pretty neat
+   things. Like in emacs-lisp you can cahnge the behavior of a
+   function without altering it, but by altering the environment it's
+   called in. Pretty neat!
