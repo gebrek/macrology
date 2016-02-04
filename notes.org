@@ -1,5 +1,14 @@
 * On Lisp
-** Lisp Programs /are/ Data (Homoiconic)
+** "Lisp Programs /are/ Data (Homoiconic)"
 ** Embedded Language
    A language built in such a way that the mother language (i.e. Lisp)
    can "appear unchanged" in the new language.
+** Common Lisp has seperate namespaces for functions and data
+   #+BEGIN_SRC lisp
+     (defun double (x)
+        (* x 2))
+     (defvar double
+       3)
+
+     (double double) ; => 6
+   #+END_SRC
