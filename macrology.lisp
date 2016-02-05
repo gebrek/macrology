@@ -2,9 +2,13 @@
 
 (in-package #:macrology)
 
-(defun our-remove-if (fn list)
-  (if (null list)
+(defun our-remove-if (fn lst)
+  (if (null lst)
       nil
-      (if (funcall fn (car list))
-	  (cons (car list)
-		(our-remove-if fn (cdr list))))))
+      (if (funcall fn (car lst))
+	  (our-remove-if fn (cdr lst))
+	  (cons (car lst)
+		(our-remove-if fn (cdr lst))))))
+
+
+
