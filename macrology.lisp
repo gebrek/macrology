@@ -2,5 +2,9 @@
 
 (in-package #:macrology)
 
-;;; "macrology" goes here. Hacks and glory await!
-
+(defun our-remove-if (fn list)
+  (if (null list)
+      nil
+      (if (funcall fn (car list))
+	  (cons (car list)
+		(our-remove-if fn (cdr list))))))
