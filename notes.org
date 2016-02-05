@@ -1,28 +1,33 @@
 * On Lisp
-** "Lisp Programs /are/ Data (Homoiconic)"
-** Embedded Language
-   A language built in such a way that the mother language (i.e. Lisp)
-   can "appear unchanged" in the new language.
-** Common Lisp has seperate namespaces for functions and data
-   #+BEGIN_SRC lisp
-     (defun double (x)
-        (* x 2))
-     (defvar double 3)
+** <2016-02-04 Thu>
+*** "Lisp Programs /are/ Data (Homoiconic)"
+*** Embedded Language
+    A language built in such a way that the mother language (i.e. Lisp)
+    can "appear unchanged" in the new language.
+*** Common Lisp has seperate namespaces for functions and data
+    #+BEGIN_SRC lisp
+      (defun double (x)
+         (* x 2))
+      (defvar double 3)
 
-     (double double) ; => 6
-   #+END_SRC
-** (Thankfully) Common Lisp is lexically scoped
-   I do like dynamic scoping, which previously "was considered on of
-   the defining features of Lisp", and you can do pretty neat
-   things. Like in emacs-lisp you can change the behavior of a
-   function without altering it, but by altering the environment it's
-   called in. Pretty neat!
+      (double double) ; => 6
+    #+END_SRC
+*** (Thankfully) Common Lisp is lexically scoped
+    I do like dynamic scoping, which previously "was considered on of
+    the defining features of Lisp", and you can do pretty neat
+    things. Like in emacs-lisp you can change the behavior of a
+    function without altering it, but by altering the environment it's
+    called in. Pretty neat!
 
-   On the flip side lexical scoping is easier to understand with a
-   static representation of the program (i.e. code) whereas dynamic
-   scoping you seem to need an understanding of the program in motion
-   which is harder to grok.
-** Closures
-   When a function is defined with free variables the environment must
-   save copies of the bindings of those variables when the function is
-   defined. This function + variable bindings is called a /closure/.
+    On the flip side lexical scoping is easier to understand with a
+    static representation of the program (i.e. code) whereas dynamic
+    scoping you seem to need an understanding of the program in motion
+    which is harder to grok.
+*** Closures
+    When a function is defined with free variables the environment must
+    save copies of the bindings of those variables when the function is
+    defined. This function + variable bindings is called a /closure/.
+** <2016-02-05 Fri>
+*** regarding defvar and defparameter
+    i suppose defvar came out of the interactive side of lisp, and
+    defparameter the static side.
