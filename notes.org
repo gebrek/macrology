@@ -77,4 +77,28 @@
    every occurrence of a variable is bound to the value that is
    lexically in scope at the occurrence site in the original source         
    program, before any template expansion
-
+** characteristic comparisons
+*** template haskell macros
+    * called at site, no different syntax for defining a function that
+      uses metaprogramming utilities
+    * purely compile time, no code building/executing at run time
+*** c++ templates
+    * compile time computation that takes place in the /type system/
+    * type system is essentially `baroque' functional language
+*** scheme macros
+    * defining them with special binding: `~define-syntax~'
+    * scheme macros first order, haskell template are higher-order
+      and first class
+    * admitting side effects raises questions
+      * when is a mutable value instatiated?
+      * can it move from compile-time to run-time?
+      * when is it shared?
+      * etc.
+*** metaml
+    * code is built and executed at run time
+    * everything is statically type checked
+    * type checking is lazy
+      * allows more powerufl programs without dependent types
+    * if metaml code generating program is type-correct then so are
+      all the programs it generates
+      * this security means `metaml cannot express many useful programs' eg. printf
