@@ -37,3 +37,16 @@
 ** staged type checking algorithm
 ** reification of programmer-written components
    * useful for boilerplate generation
+** metaprogramming use cases
+*** conditional compilation
+    * good for portability
+    * prepocessors are a "crude approach"
+*** program reification
+    * programs inspecting their own structure
+*** algorithmic program construction
+    * algorithms describing how to construct the program may be
+      simpler than the program
+*** abstractions that transcend the abstraction mechanisms accessible in the language
+    * through powerful tools to manipulate the language you may
+      effectively build into the language anything you can come up
+      with a notation for
