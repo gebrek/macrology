@@ -31,3 +31,9 @@
 *** regarding defvar and defparameter
     i suppose defvar came out of the interactive side of lisp, and
     defparameter the static side.
+* Template Meta-programming for Haskell
+** quasi-quotation mechanism
+   * ... allows gensym-like operator in purely functional language
+** staged type checking algorithm
+** reification of programmer-written components
+   * useful for boilerplate generation
