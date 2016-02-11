@@ -50,3 +50,31 @@
     * through powerful tools to manipulate the language you may
       effectively build into the language anything you can come up
       with a notation for
+** haskell metaprogramming (quasiquoting)
+   superior to cpp :-). big advantages come if, like in haskell, your
+   metaprogramming facilities exist in the same scope as the rest of
+   the language. you can use existing libraries, and learning the
+   syntax of a new language is minimal. disadvantages: nonterminating
+   code will cause the compiler to run forever.
+*** splice `$(some expression)', `$symbol'
+*** quasiquote `[| some expression |]'
+*** typing rules
+    staring at this, it's a bit lost on me so far
+*** datatypes for code
+    a list of algebraic datatypes used to represent code in template
+    haskell
+    * Exp :: expressions
+    * Dec :: declarations
+    * Pat :: patterns
+    * Typ :: types
+    * Body :: guarded definitions
+    * Statement :: ~do~ expressions and comprehensions
+    * DotDot :: arithmetic sequences
+**** thoughts
+     the simpler you're able to represent the language's syntax the
+     better. avoid if possible battalions of special cases.
+** hygenic macros
+   every occurrence of a variable is bound to the value that is
+   lexically in scope at the occurrence site in the original source         
+   program, before any template expansion
+
