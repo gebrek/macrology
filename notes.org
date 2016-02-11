@@ -86,7 +86,7 @@
     * compile time computation that takes place in the /type system/
     * type system is essentially `baroque' functional language
 *** scheme macros
-    * defining them with special binding: `~define-syntax~'
+    * defining them with special binding: ~define-syntax~
     * scheme macros first order, haskell template are higher-order
       and first class
     * admitting side effects raises questions
