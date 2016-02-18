@@ -102,3 +102,13 @@
     * if metaml code generating program is type-correct then so are
       all the programs it generates
       * this security means `metaml cannot express many useful programs' eg. printf
+* cffi
+  `common foreign function interface'. "define foreign function 
+  interfaces while still maintaining portability between
+  implementations." 
+** advantages
+   * per-function c bindings
+* blas
+  `basic linear algebra system'
+  [[file:cblas.h][cblas headers]]
+  [[file:lapacke.h][lplacke headers]]
