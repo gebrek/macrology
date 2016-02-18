@@ -108,6 +108,14 @@
   implementations." 
 ** advantages
    * per-function c bindings
+   * other language bindings, like for ruby, python, perl, etc are
+     implemented as shared objects written in C, or a tool generates
+     the code. translates between calling conventions
+   * in lisp the bindings are written in lisp.
+   * created at-will, new bindings written on a per-function basis and
+     added to the listener (SLIME, inferior-lisp)
+   * only function loaded is the one being wrapped
+   * 
 * blas
   `basic linear algebra system'
   [[file:cblas.h][cblas headers]]
