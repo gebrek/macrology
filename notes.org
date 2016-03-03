@@ -120,3 +120,21 @@
   `basic linear algebra system'
   [[file:cblas.h][cblas headers]]
   [[file:lapacke.h][lplacke headers]]
+* Metaprogramming Elixir
+** Quote and Unquote
+   Like Lisp, Elixir has makes use of the `quote' and `unquote'
+   mechanisms to work with raw code and inject evaluated code into the
+   raw code. Unlike Lisp it isn't packaged into punctuation. 
+** Code Representation
+   Elixir code is represented as a 3-tuple. For example: =quote do:
+   1 + 2= becomes ={:+, [context: Elixir, import: Kernel], [1, 2]}=. 
+   The positions are ={function, metadata, arguments}=. 
+** Hygiene
+   Protects the caller's context. Variables, imports, and aliases
+   defined in a macro don't leak into the caller's
+   definitions. Sometimes it's necessary to access the caller's
+   context implicitly and unhygienicly 
+** Overriding Hygiene
+   * =var!(var, context \\ nil)=
+     
+     sets the variable in an unhygienic way.
