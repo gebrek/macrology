@@ -9,12 +9,54 @@
     cube))
 
 (defparameter *square*
-  (let ((sq (make-array '(2 2)))
-	(counter 0))
-    (loop for i from 0 upto 1 do
-	 (loop for j from 0 upto 1 do
+  (let* ((dim 3)
+	 (sq (make-array (list dim dim)))
+	 (counter 0))
+    (loop for i from 0 upto (1- dim) do
+	 (loop for j from 0 upto (1- dim) do
 	      (setf (aref sq i j)
 		    (incf counter))))
     sq))
 
-(defmacro array-loop (array (&rest binds) ))
+(defun array-slicing (pattern array)
+  "`pattern' provides a shape for a subarray"
+  (if (/= (length pattern)
+  	  (length (array-dimensions array)))
+      (error "Pattern and array dimensions mismatch."))
+  (let* ((dims (array-dimensions array))
+	 (rank (length (array-dimensions array)))
+	 (index (loop for i in pattern collect 0))
+	 (limits (loop for i from 0 below rank collect
+		      (1+ (- (nth i dims)
+			     (nth i pattern)))))
+	 (gensyms (loop for i in pattern collect (gensym)))) 
+    (print (list :pattern pattern :array array :dims dims
+		 :rank rank :index index :limits limits))
+    (let ((bloc (print "something")))
+      ())))
+
+;; (defmacro arr-slice (arr-dims body)
+;;   (let ((bloc body))
+;;     (loop for i from 0 below (length arr-dims) do
+;; 	 (setf bloc `(loop for ,(gensym) from 0 below ,(nth i arr-dims) do
+;; 			  ,bloc)))
+;;     bloc))
+
+(defmacro array-loop (dims
+		      ;; array
+		      )
+  (let ((rank (length dims
+	       ;; (array-dimensions array)
+	       ))
+	(bloc nil)
+	(gensyms (loop for i in dims collect (gensym)))) 
+    (loop :for i :from 0 :below rank :do
+       (setf bloc `(loop :for ,(nth i gensyms) :from 0
+		      :below ,(nth i dims
+				   ;; (array-dimensions array)
+				   )
+		      :do ,bloc)))
+    bloc))
+
+(defmacro tst (array)
+  `(list ,(array-dimensions array)))
