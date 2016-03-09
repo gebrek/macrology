@@ -42,21 +42,26 @@
 ;; 			  ,bloc)))
 ;;     bloc))
 
-(defmacro array-loop (dims
-		      ;; array
-		      )
-  (let ((rank (length dims
-	       ;; (array-dimensions array)
-	       ))
-	(bloc nil)
-	(gensyms (loop for i in dims collect (gensym)))) 
+(defun array-loop (array b)
+  (let ((rank (length (array-dimensions array)))
+	(bloc b)
+	(gensyms (loop for i in (array-dimensions array) collect (gensym)))) 
     (loop :for i :from 0 :below rank :do
        (setf bloc `(loop :for ,(nth i gensyms) :from 0
-		      :below ,(nth i dims
-				   ;; (array-dimensions array)
-				   )
+		      :below ,(nth i (array-dimensions array))
 		      :do ,bloc)))
     bloc))
+
+;; (defun array-loop (array)
+;;   (let ((rank (array-dimensions array))
+;; 	(bloc nil)
+;; 	(gensyms (loop :for i :in (array-dimensions array) :collect (gensym))))
+;;     (loop :for i :from 0 :below rank :do
+;;        (setf bloc `(loop :for ,(nth i gensyms) :from 0
+;; 		      :below ,(nth i (array-dimensions array))
+;; 		      :do ,bloc)))
+;;     bloc))
+
 
 (defmacro tst (array)
   `(list ,(array-dimensions array)))
