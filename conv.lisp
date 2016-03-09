@@ -42,10 +42,15 @@
 ;; 			  ,bloc)))
 ;;     bloc))
 
-(defun array-loop (array b)
-  (let ((rank (length (array-dimensions array)))
-	(bloc b)
-	(gensyms (loop for i in (array-dimensions array) collect (gensym)))) 
+(defun array-loop (var-list array b)
+  (let* ((rank (length (array-dimensions array)))
+	 (gensyms (loop for i in (array-dimensions array) collect
+		       (gensym)))
+	 (bloc `(let ,(loop :for var :in var-list :for sym :in gensyms
+			 :collect (list var sym)) 
+		  ,b)))
+    (if (/= (length var-list) rank)
+	(error "Variable and array rank mismatch"))
     (loop :for i :from 0 :below rank :do
        (setf bloc `(loop :for ,(nth i gensyms) :from 0
 		      :below ,(nth i (array-dimensions array))
