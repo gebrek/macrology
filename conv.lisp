@@ -18,22 +18,22 @@
 		    (incf counter))))
     sq))
 
-(defun array-slicing (pattern array)
-  "`pattern' provides a shape for a subarray"
-  (if (/= (length pattern)
-  	  (length (array-dimensions array)))
-      (error "Pattern and array dimensions mismatch."))
-  (let* ((dims (array-dimensions array))
-	 (rank (length (array-dimensions array)))
-	 (index (loop for i in pattern collect 0))
-	 (limits (loop for i from 0 below rank collect
-		      (1+ (- (nth i dims)
-			     (nth i pattern)))))
-	 (gensyms (loop for i in pattern collect (gensym)))) 
-    (print (list :pattern pattern :array array :dims dims
-		 :rank rank :index index :limits limits))
-    (let ((bloc (print "something")))
-      ())))
+;; (defun array-slicing (pattern array)
+;;   "`pattern' provides a shape for a subarray"
+;;   (if (/= (length pattern)
+;;   	  (length (array-dimensions array)))
+;;       (error "Pattern and array dimensions mismatch."))
+;;   (let* ((dims (array-dimensions array))
+;; 	 (rank (length (array-dimensions array)))
+;; 	 (index (loop for i in pattern collect 0))
+;; 	 (limits (loop for i from 0 below rank collect
+;; 		      (1+ (- (nth i dims)
+;; 			     (nth i pattern)))))
+;; 	 (gensyms (loop for i in pattern collect (gensym)))) 
+;;     (print (list :pattern pattern :array array :dims dims
+;; 		 :rank rank :index index :limits limits))
+;;     (let ((bloc (print "something")))
+;;       ())))
 
 ;; (defmacro arr-slice (arr-dims body)
 ;;   (let ((bloc body))
@@ -57,16 +57,4 @@
 		      :do ,bloc)))
     bloc))
 
-;; (defun array-loop (array)
-;;   (let ((rank (array-dimensions array))
-;; 	(bloc nil)
-;; 	(gensyms (loop :for i :in (array-dimensions array) :collect (gensym))))
-;;     (loop :for i :from 0 :below rank :do
-;;        (setf bloc `(loop :for ,(nth i gensyms) :from 0
-;; 		      :below ,(nth i (array-dimensions array))
-;; 		      :do ,bloc)))
-;;     bloc))
-
-
-(defmacro tst (array)
-  `(list ,(array-dimensions array)))
+(eval (array-loop '(x y z) *cube* '(print (list x y z))))
