@@ -58,3 +58,5 @@
     bloc))
 
 (eval (array-loop '(x y z) *cube* '(print (list x y z))))
+(terpri)
+(eval (array-loop '(x y) *square* '(print (list x y))))
