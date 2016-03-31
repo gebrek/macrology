@@ -30,21 +30,21 @@
 		 (lisp->java (caddr exp))))
 	((eql (car exp) '+)
 	 (format nil
-		 "~{~a ~^+ ~}"
+		 "~{~a ~^+ ~};"
 		 (cdr exp)))))
 
 
 ;; CL-USER> (lisp->java *lam*)
 ;; "static int G864(int X) {
-;; X + 1 
+;; X + 1;
 ;; }"
 ;; CL-USER> (lisp->java '(lambda (x y) (+ x y)))
 ;; "static int G865(int X, int Y) {
-;; X + Y 
+;; X + Y;
 ;; }"
 ;; CL-USER> (lisp->java '(lambda (x) (+ x)))
 ;; "static int G866(int X) {
-;; X 
+;; X;
 ;; }"
 ;; CL-USER> (lisp->java '(lambda (x y z) (+ x y z)))
 ;; "static int G867(int X, int Y, int Z) {
